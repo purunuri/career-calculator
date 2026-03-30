@@ -92,9 +92,7 @@ export default function App() {
       const reader = new FileReader();
       reader.onload = async (e) => {
         const base64Data = e.target.result.split(',')[1];
-        const apiKey = import.meta.env.VITE_GEMINI_API_KEY; 
-        const mimeType = file.type || "image/png";
-        
+        const apiKey = import.meta.env.VITE_GEMINI_API_KEY;      
         const systemPrompt = "HR data extractor. Extract career history. JSON ONLY. Identify the main subject name, not the 'output person' (출력자).";
         const userQuery = `문서에서 정보를 추출해:
         1. name: 대상자의 성함 (출력자가 아닌, 기록의 주인공 이름)
